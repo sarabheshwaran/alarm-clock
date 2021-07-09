@@ -3,32 +3,34 @@ import datetime
 import time
 import winsound
 
-def Alarm(set_alarm_timer):
+def Alarm(x):
     while True:
         time.sleep(1)
         actual_time = datetime.datetime.now()
         cur_time = actual_time.strftime("%H:%M:%S")
-        cur_date = actual_time.strftime("%d/%m/%Y")
-        msg="Current Time: "+str(cur_time)
+        cur_date = actual_time.strftime("%d/%Y/%m")
+        msg="Current Time: "+str(cur_time)+"/n Current Date: "+str(cur_date)
         print(msg)
-        if cur_time == set_alarm_timer:
+        if cur_time == x:
             print("Time to wake")
             winsound.PlaySound("Music.wav",winsound.SND_ASYNC)
             break
 
 def get_alarm_time():
-    alarm_set_time = f"{hour.get()}:{min.get()}:{sec.get()}"
-    Alarm(alarm_set_time)
+    alarm_time = f"{hour.get()}:{min.get()}:{sec.get()}"
+    Alarm(alarm_time)
 
 window = Tk()
 window.title("ALARM")
-window.geometry("500x150")
+window.geometry("500x200")
 window.config(bg="white")
 window.resizable(width=False,height=False)
 
 time_format=Label(window, text= "Set time in 24 hour format!", fg="black",bg="white",font=("Arial",15)).place(x=20,y=120)
 addTime = Label(window,text = "Hour     Min     Sec",font=60,fg="black",bg="white").place(x = 260)
 setYourAlarm = Label(window,text = "Set Time for Alarm: ",fg="black",bg="white",relief = "solid",font=("Helevetica",15,"bold")).place(x=10, y=40)
+setdate = Label(window,text= "set date :", fg="black" ,bg="white" , relief="solid" , font=("Helevetica",15,"bold")).place(x=20, y=150)
+
 
 hour = StringVar()
 min = StringVar()
