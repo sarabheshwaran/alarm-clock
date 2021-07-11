@@ -8,8 +8,8 @@ def Alarm(x):
         time.sleep(1)
         actual_time = datetime.datetime.now()
         cur_time = actual_time.strftime("%H:%M:%S")
-        cur_date = actual_time.strftime("%d/%Y/%m")
-        msg="Current Time: "+str(cur_time)+"/n Current Date: "+str(cur_date)
+        cur_date = actual_time.strftime("%d/%m/%Y")
+        msg="Current Time: "+str(cur_time)+"\n Current Date: "+str(cur_date)
         print(msg)
         if cur_time == x:
             print("Time to wake")
